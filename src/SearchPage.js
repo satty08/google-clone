@@ -25,7 +25,7 @@ function SearchPage() {
     return (
         <div className="searchPage">
             <div className="searchPage__header">
-                <Link to="/" >
+                <Link href="/" >
                     <img
                         className="searchPage__logo"
                         src="https://cdn.vox-cdn.com/thumbor/p01ezbiuDHgRFQ-htBCd7QxaYxo=/0x105:2012x1237/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" 
@@ -47,7 +47,7 @@ function SearchPage() {
                         </div>
                         <div className="searchPage__option">
                             <ImageIcon />
-                            <Link to="/images">Images</Link>
+                            <Link href="https://www.google.co.in/imghp?hl=en&tab=wi&ogbl">Images</Link>
                         </div>
                         <div className="searchPage__option">
                             <LocalOfferIcon />
@@ -73,9 +73,31 @@ function SearchPage() {
                 </div>
                 </div>
             </div>
-            <div className="searchPage__results">
-
-            </div>
+            {term && (
+                <div className="searchPage__results">
+                    <p className="searchPage__resultCount">About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime} 
+                    seconds) for {term}</p>
+                    {data?.items.map(item => (
+                        <div className="searchPage__result">
+                           <a className="searchPage__resultLink" href={item.link}>
+                               {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                                   <img className="searchPage__resultImage" src={item.pagemap?.cse_image[0]?.src}
+                                        alt="" 
+                                    />
+                               )}
+                               {item.displayLink}
+                            </a>
+                            <a href={item.link} className="searchPage__resultTitle">
+                                <h2>{item.title}</h2>
+                            </a>
+                            <p className="searchPage__resultSnippet">
+                                {item.snippet}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            )}
+            
         </div>
     )
 }
