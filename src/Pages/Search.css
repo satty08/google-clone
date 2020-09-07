@@ -22,6 +22,12 @@
     outline-width: 0;
 }
 
+@media only screen and (max-width: 400px) {
+  .search__MicIcon {
+      margin: auto;
+  }
+}
+
 .search__inputIcon {
     color: gray;
 }

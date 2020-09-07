@@ -47,7 +47,7 @@ function SearchPage() {
                         </div>
                         <div className="searchPage__option">
                             <ImageIcon />
-                            <Link href="https://www.google.co.in/imghp?hl=en&tab=wi&ogbl">Images</Link>
+                            <Link href="www.google.com">Images</Link>
                         </div>
                         <div className="searchPage__option">
                             <LocalOfferIcon />
