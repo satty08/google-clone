@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AppsIcon from '@material-ui/icons/Apps';
 import { Avatar } from '@material-ui/core';
 import Search from './Search';
+import Adsense from 'react-adsense';
 
 function Home() {
     return (
@@ -30,6 +31,13 @@ function Home() {
                 <div className="home__inputContainer">
                     <Search />
                 </div>
+
+                <AdSense.Google
+                    client='ca-pub-7292810486004926'
+                    slot='7806394673'
+                    style={{ width: 500, height: 300, float: 'left' }}
+                    format=''
+                />
             </div>
         </div>
     )
